@@ -15,10 +15,10 @@ def benchmark(func, nbpics, iterm2_display):
     idx = 0
     cpt = 0
     duration = 0
+    kernel = np.array([[0, -1, 0], [-1, 4, -1], [0, -1, 0]])
     while True:
         img = np.array(Image.open(picfiles[idx])).astype(np.int16)
-        kernel = np.array([[0, -1, 0], [-1, 4, -1], [0, -1, 0]])
-    
+
         start = time.time()
         res = func(img, kernel)
         duration += time.time() - start
