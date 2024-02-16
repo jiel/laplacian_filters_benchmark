@@ -27,6 +27,12 @@ struct Matrix[dtype: DType]:
     fn __getitem__(self, x: Int, y: Int) -> SIMD[dtype,1]:
         return self._data.simd_load[1](x * self.width + y)
 
+    fn simd_store[nelts: Int](self, x: Int, y: Int, value: SIMD[dtype,nelts]):
+        return self._data.simd_store[nelts](x * self.width + y, value)
+
+    fn simd_load[nelts: Int](self, x: Int, y: Int) -> SIMD[dtype,nelts]:
+        return self._data.simd_load[nelts](x * self.width + y)
+
     fn __copyinit__(inout self, other: Self):
         self._data = other._data
         self.height = other.height
