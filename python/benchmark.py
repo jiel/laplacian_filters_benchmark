@@ -10,7 +10,7 @@ def listdir(dir, ext):
     return " ".join([os.path.join(dir, file) for file in os.listdir(dir) if file.endswith(ext)])
 
 
-def benchmark(func, nbpics, iterm2_display):
+def benchmark(func, nbpics, iterm2_display, print_stats=True):
     picfiles = listdir("../pictures", "pgm").split(" ")
     idx = 0
     cpt = 0
@@ -32,5 +32,8 @@ def benchmark(func, nbpics, iterm2_display):
         if idx >= len(picfiles):
             idx = 0
 
-    print(f'total duration for {nbpics} pictures : {int((duration * 1000))} ms')
-    print(f'mean duration : {((duration * 1000) / nbpics):.3f} ms / picture')
+    if print_stats:
+        print(f'total duration for {nbpics} pictures : {int((duration * 1000))} ms')
+        print(f'mean duration : {((duration * 1000) / nbpics):.3f} ms / picture')
+
+    return (duration * 1000) / nbpics

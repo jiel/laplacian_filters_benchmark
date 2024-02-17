@@ -3,6 +3,7 @@ from benchmark import benchmark
 
 
 def naive(img, kernel):
+    """naive implementation"""
     height, width = img.shape[0], img.shape[1]
     result = np.zeros((height, width))
     for i in range(1, height-1):

@@ -11,7 +11,6 @@ fn vectorized(self: Matrix[DType.float32], kernel: Matrix[DType.float32]) -> Mat
     # Loop through each pixel in the image
     # But skip the outer edges of the image
     for i in range(1, self.height-1):
-
         @parameter
         fn dot[nelts: Int](j: Int):
             var acc: SIMD[DType.float32,nelts] = 0
@@ -23,4 +22,4 @@ fn vectorized(self: Matrix[DType.float32], kernel: Matrix[DType.float32]) -> Mat
     return result
 
 fn main() raises:
-    benchmark(func=vectorized, nbpics=10, iterm2_display=True)
+    _ = benchmark(func=vectorized, nbpics=10, iterm2_display=True)

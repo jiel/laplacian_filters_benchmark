@@ -4,6 +4,7 @@ from numba import njit
 
 @njit
 def numba_numpy_mul(img, kernel):
+    """numpy + numba jit"""
     height, width = img.shape[0], img.shape[1]
     result = np.zeros((height, width))
     for i in range(1, height-1):

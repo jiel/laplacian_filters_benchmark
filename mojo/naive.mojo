@@ -16,4 +16,4 @@ fn naive(self: Matrix[DType.float32], kernel: Matrix[DType.float32]) -> Matrix[D
     return result
 
 fn main() raises:
-    benchmark(func=naive, nbpics=10, iterm2_display=True)
+    _ = benchmark(func=naive, nbpics=10, iterm2_display=True)

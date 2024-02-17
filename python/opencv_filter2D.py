@@ -4,6 +4,7 @@ from cv2 import filter2D
 
 
 def opencv_filter2D(img, kernel):
+    """opencv filter2D"""
     return np.clip(filter2D(src=img, ddepth=-1, kernel=kernel), 0, 255)
 
 

@@ -4,6 +4,7 @@ from cv2 import Laplacian
 
 
 def opencv_laplacian(img, kernel):
+    """opencv laplacian"""
     return np.clip(Laplacian(src=img, ddepth=-1), 0, 255)
 
 

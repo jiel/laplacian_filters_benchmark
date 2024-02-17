@@ -5,7 +5,7 @@ from Image import Image
 from Matrix import Matrix
 
 
-fn benchmark(func : fn(borrowed Matrix[DType.float32], borrowed Matrix[DType.float32]) -> Matrix[DType.float32], nbpics: Int, iterm2_display: Bool) raises:
+fn benchmark(func : fn(borrowed Matrix[DType.float32], borrowed Matrix[DType.float32]) -> Matrix[DType.float32], nbpics: Int, iterm2_display: Bool, print_stats: Bool = True) raises -> Float64 :
     Python.add_to_path(".")
     let utilities : PythonObject = Python.import_module("utilities")
     let picfiles = utilities.listdir("../pictures", ".pgm").split(" ")
@@ -27,6 +27,10 @@ fn benchmark(func : fn(borrowed Matrix[DType.float32], borrowed Matrix[DType.flo
 
         if iterm2_display:
             Image(res).cat()
+        else:
+            # uses the result to prevent optimizations from squishing the code path
+            with open("/tmp/out.pgm", "w") as out:
+                out.write(Image(res).__str__())
         
         cpt += 1
         if cpt >= nbpics:
@@ -35,5 +39,8 @@ fn benchmark(func : fn(borrowed Matrix[DType.float32], borrowed Matrix[DType.flo
         if idx >= int(picfiles.__len__()):
             idx = 0
 
-    print("total duration for", nbpics, "pictures :" , int(duration/1_000_000), " ms")
-    print("mean duration :", (duration/1_000_000) / nbpics, " ms / picture")
+    if print_stats:
+        print("total duration for", nbpics, "pictures :" , int(duration/1_000_000), " ms")
+        print("mean duration :", (duration/1_000_000) / nbpics, " ms / picture")
+
+    return (duration/1_000_000) / nbpics

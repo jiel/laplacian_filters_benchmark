@@ -3,6 +3,7 @@ from benchmark import benchmark
 
 
 def numpy_mul(img, kernel):
+    """numpy element wise product"""
     height, width = img.shape[0], img.shape[1]
     result = np.zeros((height, width))
     for i in range(1, height-1):
