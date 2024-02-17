@@ -1,0 +1,1 @@
+* Some inspiration and the hostinfo.py come from https://github.com/manatlan/sudoku_resolver/
