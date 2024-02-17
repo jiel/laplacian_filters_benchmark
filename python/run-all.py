@@ -18,5 +18,4 @@ if __name__ == "__main__":
     for algo, nb_iterations in algos:
         mean_duration = benchmark(func=algo, nbpics=nb_iterations,
                                   iterm2_display=False, print_stats=False)
-        print(f'PYTHON : {algo.__doc__:29s} : mean duration on ' +
-              f'{nb_iterations}pictures: {mean_duration:.3f} ms / picture')
+        print(f'PYTHON : {algo.__doc__:29s} : {mean_duration:.3f} ms / picture')
