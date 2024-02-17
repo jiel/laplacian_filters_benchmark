@@ -8,10 +8,10 @@ fn main() raises:
     var mean_duration : Float64
     
     mean_duration= benchmark(func=naive, nbpics=100, iterm2_display=False, print_stats=False)
-    print("MOJO🔥 : naive implementation          : ", mean_duration, " ms / picture")
+    print("MOJO🔥 : naive implementation          :", mean_duration, " ms / picture")
 
     mean_duration = benchmark(func=vectorized, nbpics=100, iterm2_display=False, print_stats=False)
-    print("MOJO🔥 : vectorized implementation     : ", mean_duration, " ms / picture")
+    print("MOJO🔥 : vectorized implementation     :", mean_duration, " ms / picture")
 
     mean_duration = benchmark(func=paravectorized, nbpics=100, iterm2_display=False, print_stats=False)
-    print("MOJO🔥 : parallelized (2 workers)      : ", mean_duration, " ms / picture")
+    print("MOJO🔥 : parallelized (2 workers)      :", mean_duration, " ms / picture")
