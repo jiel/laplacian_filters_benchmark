@@ -25,7 +25,7 @@ cd python; pip install -r requirements.txt
 
 ### Mojo 🔥
 
-⚠️ The Mojo implementations have been tested with the pre-release of mojo version 0.7.0. Mojo is moving [fast](https://docs.modular.com/mojo/changelog.html) : you may encounter malfunctions if you try to use it with a newer version. I plan to follow up quickly the syntax updates.
+⚠️ The Mojo implementations have been tested with the pre-release of mojo version 24.1. Mojo is moving [fast](https://docs.modular.com/mojo/changelog.html) : you may encounter malfunctions if you try to use it with a newer version. I plan to follow up quickly the syntax updates.
 
 You can follow [the instructions](https://docs.modular.com/mojo/manual/get-started/) to install mojo compiler on Ubuntu linux or MacOs. There is no external dependancies.
 
