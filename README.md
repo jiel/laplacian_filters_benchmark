@@ -64,20 +64,21 @@ Interactive mode works on a subset of the dataset and the display of images may 
 Here are the results on my laptop (apple macbook M1 first generation) :
 
 ```sh
- % ./run.sh
 PLATFORM : arm/macOS-14.2.1-arm64-arm-64bit with 8 cpus
+Python 3.11.1
+mojo 24.1.0 (55ec12d6)
 ---   compute mean duration on the BSDS500 dataset  ---
-PYTHON : naive implementation          : 493.112 ms / picture
-PYTHON : numpy element wise product    : 268.995 ms / picture
-PYTHON : numpy + numba jit             : 43.958 ms / picture
-PYTHON : scipy.signal fftconvolve      : 2.389 ms / picture
-PYTHON : scipy.ndimage convolve        : 0.840 ms / picture
-PYTHON : scipy.ndimage laplace         : 0.675 ms / picture
-PYTHON : opencv filter2D               : 0.358 ms / picture
-PYTHON : opencv laplacian              : 0.374 ms / picture
-MOJO🔥 : naive implementation          : 0.80776999999999999 ms / picture
-MOJO🔥 : vectorized implementation     : 0.23050999999999999 ms / picture
-MOJO🔥 : parallelized (2 workers)      : 0.17534 ms / picture
+PYTHON : naive implementation          : 494.972 ms / picture
+PYTHON : numpy element wise product    : 273.633 ms / picture
+PYTHON : numpy + numba jit             : 44.914 ms / picture
+PYTHON : scipy.signal fftconvolve      : 2.407 ms / picture
+PYTHON : scipy.ndimage convolve        : 0.851 ms / picture
+PYTHON : scipy.ndimage laplace         : 0.684 ms / picture
+PYTHON : opencv filter2D               : 0.363 ms / picture
+PYTHON : opencv laplacian              : 0.358 ms / picture
+MOJO🔥 : naive implementation          : 0.80554000000000003 ms / picture
+MOJO🔥 : vectorized implementation     : 0.14718999999999999 ms / picture
+MOJO🔥 : parallelized (2 workers)      : 0.12929000000000002 ms / picture
 ```
 ## 
 

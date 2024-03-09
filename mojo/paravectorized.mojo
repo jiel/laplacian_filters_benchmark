@@ -4,7 +4,7 @@ from math import min, max
 from algorithm import vectorize, parallelize
 
 from sys.info import simdwidthof
-alias nelts = (simdwidthof[DType.float32]())
+alias nelts = simdwidthof[DType.float32]() * 2
 
 alias WORKERS = 2
 

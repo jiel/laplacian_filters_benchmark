@@ -4,7 +4,7 @@ from math import min, max
 from algorithm import vectorize
 
 from sys.info import simdwidthof
-alias nelts = (simdwidthof[DType.float32]())
+alias nelts = simdwidthof[DType.float32]() * 2
 
 fn vectorized(img: Matrix[DType.float32], kernel: Matrix[DType.float32]) -> Matrix[DType.float32]:
     var result = Matrix[DType.float32](img.height, img.width)
@@ -18,7 +18,7 @@ fn vectorized(img: Matrix[DType.float32], kernel: Matrix[DType.float32]) -> Matr
                 for l in range(3):
                     acc += img.simd_load[nelts](i-1+k, j+l) * kernel[k, l]
             result.simd_store[nelts](i, j+1, min(255, max(0, acc)))
-        vectorize[dot, nelts](img.width-2)
+        vectorize[dot, nelts](size=img.width-2)
     return result
 
 fn main() raises:
